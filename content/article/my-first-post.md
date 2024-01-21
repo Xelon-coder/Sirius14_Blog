@@ -33,4 +33,4 @@ cover:
 ---
 
 This is a test with my logo
-![Text alternatif](/img/logo.png)
+![Text alternatif](/Sirius14_Blog/img/logo.png)
