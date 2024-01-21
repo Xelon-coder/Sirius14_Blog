@@ -21,12 +21,6 @@ ShowRssButtonInSectionTermList: false
 UseHugoToc: true
 pygmentsUseClasses: true
 pygmentsCodeFences: true
-cover:
-    image: "/Sirius14_Blog/img/logo.png" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
 ---
 
 We've intercepted an outgoing communication from the Syndicate's backup server. It looks like a member has made himself an emergency door so he can chat with someone inside... But what did he want to say? Decrypt the conversation using the fact that they are talking about `Hack107` and one of their team member...

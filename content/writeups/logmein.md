@@ -21,12 +21,6 @@ ShowRssButtonInSectionTermList: false
 UseHugoToc: true
 pygmentsUseClasses: true
 pygmentsCodeFences: true
-cover:
-    image: "/Sirius14_Blog/img/logo.png" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
 ---
 
 Log in by using the identifiers found in the "Baby Reverse Engineering" test. The person with these identifiers has been identified as working for HACK107, and we also know from trusted sources by our double agent that these computer defense capabilities are highly exploitable. You should therefore be able to take advantage of it to find interesting information and retrieve the flag to get your hand on his data.

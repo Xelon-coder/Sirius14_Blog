@@ -21,12 +21,6 @@ ShowRssButtonInSectionTermList: false
 UseHugoToc: true
 pygmentsUseClasses: true
 pygmentsCodeFences: true
-cover:
-    image: "/Sirius14_Blog/img/logo.png" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
 ---
 
 We have just received a surprising report from our field teams. While searching for a recently apprehended criminal, they found an interesting hard drive on the scene. However, after interrogation, this criminal revealed that he is part of an organization that could very well be SYNDICAT! Judging by the rather peculiar content on the hard drive, it certainly contains a hidden message. And, as you have guessed, your job is to uncover it! 

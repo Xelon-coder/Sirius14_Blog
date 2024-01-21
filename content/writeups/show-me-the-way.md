@@ -21,12 +21,6 @@ ShowRssButtonInSectionTermList: false
 UseHugoToc: true
 pygmentsUseClasses: true
 pygmentsCodeFences: true
-cover:
-    image: "/Sirius14_Blog/img/logo.png" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
 ---
 
 The secret agent 007 gave us a classified file and gave us the means to read it, unfortunately, he could not do it to avoid any suspicion within the Hack107. Decrypt the text in the file to read the flag!

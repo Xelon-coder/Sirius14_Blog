@@ -43,11 +43,11 @@ showtoc = false
 tocopen = false
 
 [params.assets]
-  favicon = "<link / abs url>"
-  favicon16x16 = "<link / abs url>"
-  favicon32x32 = "<link / abs url>"
-  apple_touch_icon = "<link / abs url>"
-  safari_pinned_tab = "<link / abs url>"
+  favicon = "/Sirius14_Blog/img/logo.png"
+  favicon16x16 = "/Sirius14_Blog/img/logo.png"
+  favicon32x32 = "/Sirius14_Blog/img/logo.png"
+  apple_touch_icon = "/Sirius14_Blog/img/logo.png"
+  safari_pinned_tab = "/Sirius14_Blog/img/logo.png"
 
   [params.label]
   text = "Home"
@@ -55,24 +55,24 @@ tocopen = false
   iconHeight = 35
 
   [params.profileMode]
-  enabled = false
-  title = "ExampleSite"
-  subtitle = "This is subtitle"
-  imageUrl = "<img location>"
+  enabled = true
+  title = "Sirius14 Blog"
+  subtitle = "Writeups & article"
+  imageUrl = "/Sirius14_Blog/img/logo.png"
   imageWidth = 120
   imageHeight = 120
   imageTitle = "my image"
 
     [[params.profileMode.buttons]]
-    name = "Posts"
-    url = "posts"
+    name = "Who am I ?"
+    url = "article/who-am-i/"
 
     [[params.profileMode.buttons]]
     name = "Tags"
     url = "tags"
 
   [params.homeInfoParams]
-  Title = "Sirius14 Blog"
+  Title = "Sirius14 Blogs"
   Content = "Writeups & article"
 
   [[params.socialIcons]]
@@ -82,6 +82,10 @@ tocopen = false
   [[params.socialIcons]]
   name = "rootme"
   url = "https://www.root-me.org/Sirius14"
+
+  [[params.socialIcons]]
+  name = "discord"
+  url = "https://discordapp.com/users/427092192880754691"
 
 [params.analytics.google]
 SiteVerificationTag = "XYZabc"
@@ -98,7 +102,7 @@ SiteVerificationTag = "XYZabc"
   hiddenInSingle = true
 
   [params.editPost]
-  URL = "https://github.com/<path_to_repo>/content"
+  URL = "https://xelon-coder.github.io/Sirius14_Blog/"
   Text = "Suggest Changes"
   appendFilePath = true
 
