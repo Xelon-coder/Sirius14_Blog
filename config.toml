@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://xelon-coder.github.io/Sirius14_Blog/'
 languageCode = 'en-us'
 title = 'Sirius14 Blog'
 theme = 'PaperMod'
