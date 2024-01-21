@@ -49,7 +49,7 @@ tocopen = false
 
   [params.label]
   text = "Home"
-  icon = "/img/logo.png"
+  icon = "/Sirius14_Blog/img/logo.png"
   iconHeight = 35
 
   [params.profileMode]
