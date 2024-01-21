@@ -11,7 +11,6 @@ comments: false
 description: "A brief presentation"
 disableHLJS: true # to disable highlightjs
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

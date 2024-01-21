@@ -2,6 +2,8 @@ baseURL = 'https://xelon-coder.github.io/Sirius14_Blog/'
 languageCode = 'en-us'
 title = 'Sirius14 Blog'
 theme = 'PaperMod'
+pygmentsUseClasses = true
+pygmentsCodeFences = true
 
 enableRobotsTXT = true
 buildDrafts = false
@@ -77,6 +79,10 @@ tocopen = false
   name = "github"
   url = "https://github.com/Xelon-coder"
 
+  [[params.socialIcons]]
+  name = "rootme"
+  url = "https://www.root-me.org/Sirius14"
+
 [params.analytics.google]
 SiteVerificationTag = "XYZabc"
 
@@ -118,4 +124,10 @@ url = "/article/"
 weight = 20
 
 [markup.highlight]
-noClasses = false
+  codeFences = true
+  guessSyntax = true
+  lineNoStart = 1
+  lineNos = true
+  lineNumbersInTable = true
+  tabWidth = 4
+  noClasses = false
