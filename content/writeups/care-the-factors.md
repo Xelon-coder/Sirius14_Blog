@@ -117,6 +117,6 @@ P.S : Note that we don't need all dlogs tab (DL of last factor is too long for s
 
 Last step is to decrypt the flag, key is md5(n) and iv is given, we put this in [cyberchef](https://gchq.github.io/CyberChef/#recipe=AES_Decrypt(%7B'option':'Hex','string':'08fac709549765925a1b15738de81fda'%7D,%7B'option':'Hex','string':'4318aa195451964d2078e230494ef079'%7D,'CBC','Hex','Raw',%7B'option':'Hex','string':''%7D,%7B'option':'Hex','string':''%7D)&input=NzVhZTY5NDRkMzQzNGM5ZTk2YWZmZDQwYzYxMzdiZmUyMzkzNGZkZGNjNjY5M2JkZmRkN2ExZDU0MmYzNDY0YTEyYWJjMDlkODdkZDBkYzhmZDg2MGQ2NjZkZDJiMzM3)
 
-And we obtain the flag : HACKDAY{W34k_EC_W1th_P0hlig_H3llm4n_4TT4cK}
+And we obtain the flag : __HACKDAY{W34k_EC_W1th_P0hlig_H3llm4n_4TT4cK}__
 
 Thanks to D0ppl3gang3r for this chall !
