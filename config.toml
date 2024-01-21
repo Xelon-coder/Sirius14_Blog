@@ -70,20 +70,12 @@ tocopen = false
     url = "tags"
 
   [params.homeInfoParams]
-  Title = "Hi there 👋"
-  Content = "Welcome to my blog"
-
-  [[params.socialIcons]]
-  name = "twitter"
-  url = "https://twitter.com/"
-
-  [[params.socialIcons]]
-  name = "stackoverflow"
-  url = "https://stackoverflow.com"
+  Title = "Sirius14 Blog"
+  Content = "Writeups & article"
 
   [[params.socialIcons]]
   name = "github"
-  url = "https://github.com/"
+  url = "https://github.com/Xelon-coder"
 
 [params.analytics.google]
 SiteVerificationTag = "XYZabc"
@@ -114,22 +106,16 @@ SiteVerificationTag = "XYZabc"
   keys = [ "title", "permalink", "summary", "content" ]
 
 [[menu.main]]
-identifier = "categories"
-name = "categories"
-url = "/categories/"
+identifier = "Writeups"
+name = "Writeups"
+url = "/writeups/"
 weight = 10
 
 [[menu.main]]
-identifier = "tags"
-name = "tags"
-url = "/tags/"
+identifier = "Article"
+name = "Article"
+url = "/article/"
 weight = 20
-
-[[menu.main]]
-identifier = "example"
-name = "example.org"
-url = "https://example.org"
-weight = 30
 
 [markup.highlight]
 noClasses = false
