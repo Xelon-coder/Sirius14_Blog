@@ -19,8 +19,6 @@ ShowPostNavLinks: false
 ShowWordCount: false
 ShowRssButtonInSectionTermList: false
 UseHugoToc: true
-pygmentsUseClasses: true
-pygmentsCodeFences: true
 cover:
     image: "/Sirius14_Blog/img/logo.png" # image path/url
     alt: "<alt text>" # alt text

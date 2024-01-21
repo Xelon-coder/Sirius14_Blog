@@ -1,7 +1,6 @@
 ---
 title: "Show Me the Way"
 date: 2024-01-21T20:43:34+01:00
-draft: true
 tags: ["CTF","Writeups","HACKDAY 2024 Qualification","Crypto"]
 author: "Sirius14"
 showToc: true
