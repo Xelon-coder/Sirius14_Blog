@@ -18,6 +18,7 @@ disableXML = true
 minifyOutput = true
 
 [params]
+env = "production"
 title = "Sirius14 Blog"
 description = "ExampleSite description"
 keywords = [ "Blog", "Portfolio", "PaperMod" ]
