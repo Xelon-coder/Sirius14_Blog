@@ -8,7 +8,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "HACKDAY 2024 Qualification Crypto challenge by Didouad"
+description: "HACKDAY 2024 Qualification Steganography challenge by Didouad"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false

@@ -8,7 +8,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "HACKDAY 2024 Qualification Crypto challenge by ZEN"
+description: "HACKDAY 2024 Qualification Forensic challenge by ZEN"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
