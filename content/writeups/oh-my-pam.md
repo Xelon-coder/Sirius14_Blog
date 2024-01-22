@@ -1,5 +1,5 @@
 ---
-title: "⚙️ Oh My Pam"
+title: "⚙️ Oh My PAM"
 date: 2024-01-22T17:37:46+01:00
 tags: ["CTF","Writeups","HACKDAY 2024 Qualification","⚙️ Reverse"]
 author: "Sirius14"

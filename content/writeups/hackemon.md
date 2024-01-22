@@ -70,7 +70,7 @@ I try to test with another famous tool in steganography called Stegseek, we can 
 
 ![pika pika file](/Sirius14_Blog/img/writeups/hackemon_4.png)
 
-It's pika lang, an esoteric language use in steganography, with [dcode](https://www.dcode.fr/langage-pikalang) we can interpret this code and obtain:
+It's pika lang, an esoteric language used in steganography, with [dcode](https://www.dcode.fr/langage-pikalang) we can interpret this code and obtain:
 
 `The flag is Hacday{reverse the name of the Pokemon below}`
 
