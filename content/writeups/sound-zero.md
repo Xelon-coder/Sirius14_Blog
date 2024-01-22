@@ -1,7 +1,7 @@
 ---
-title: "Sound Zero"
+title: "🖼️ Sound Zero"
 date: 2024-01-21T23:09:19+01:00
-tags: ["CTF","Writeups","HACKDAY 2024 Qualification","Stego"]
+tags: ["CTF","Writeups","HACKDAY 2024 Qualification","🖼️ Stego"]
 author: "Sirius14"
 showToc: true
 TocOpen: false
@@ -9,6 +9,7 @@ draft: false
 hidemeta: false
 comments: false
 description: "HACKDAY 2024 Qualification Steganography challenge by Didouad"
+summary: "HACKDAY 2024 Qualification Steganography challenge by Didouad"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false

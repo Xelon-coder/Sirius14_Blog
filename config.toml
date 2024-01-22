@@ -2,6 +2,7 @@ baseURL = 'https://xelon-coder.github.io/Sirius14_Blog/'
 languageCode = 'en-us'
 title = 'Sirius14 Blog'
 theme = 'PaperMod'
+paginate = 5
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 
@@ -17,30 +18,12 @@ disableXML = true
 minifyOutput = true
 
 [params]
-env = "production"
-title = "ExampleSite"
+title = "Sirius14 Blog"
 description = "ExampleSite description"
 keywords = [ "Blog", "Portfolio", "PaperMod" ]
 author = "Sirius14"
 images = [ "/Sirius14_Blog/img/logo.png" ]
 DateFormat = "January 2, 2006"
-defaultTheme = "auto"
-disableThemeToggle = false
-ShowReadingTime = true
-ShowShareButtons = true
-ShowPostNavLinks = true
-ShowBreadCrumbs = true
-ShowCodeCopyButtons = false
-ShowWordCount = true
-ShowRssButtonInSectionTermList = true
-UseHugoToc = true
-disableSpecial1stPost = false
-disableScrollToTop = false
-comments = false
-hidemeta = false
-hideSummary = false
-showtoc = false
-tocopen = false
 
 [params.assets]
   favicon = "/Sirius14_Blog/img/logo.png"

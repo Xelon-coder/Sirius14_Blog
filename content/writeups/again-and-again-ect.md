@@ -1,7 +1,7 @@
 ---
-title: "Again and Again Ect"
+title: "🔒 Again and Again Ect"
 date: 2024-01-21T21:35:34+01:00
-tags: ["CTF","Writeups","HACKDAY 2024 Qualification","Crypto"]
+tags: ["CTF","Writeups","HACKDAY 2024 Qualification","🔒 Crypto"]
 author: "Sirius14"
 showToc: true
 TocOpen: false
@@ -9,6 +9,7 @@ draft: false
 hidemeta: false
 comments: false
 description: "HACKDAY 2024 Qualification Crypto challenge by Chelinka"
+summary: "HACKDAY 2024 Qualification Crypto challenge by Chelinka"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false

@@ -1,7 +1,7 @@
 ---
-title: "Hackemon"
+title: "🖼️ Hackemon"
 date: 2024-01-22T15:08:53+01:00
-tags: ["CTF","Writeups","HACKDAY 2024 Qualification","Stego"]
+tags: ["CTF","Writeups","HACKDAY 2024 Qualification","🖼️ Stego"]
 author: "Sirius14"
 showToc: true
 TocOpen: false
@@ -9,6 +9,7 @@ draft: false
 hidemeta: false
 comments: false
 description: "HACKDAY 2024 Qualification Steganography challenge by Yam"
+summary: "HACKDAY 2024 Qualification Steganography challenge by Yam"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false

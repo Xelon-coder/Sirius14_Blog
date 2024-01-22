@@ -1,7 +1,7 @@
 ---
-title: "Show Me the Way"
+title: "🔒 Show Me the Way"
 date: 2024-01-21T20:43:34+01:00
-tags: ["CTF","Writeups","HACKDAY 2024 Qualification","Crypto"]
+tags: ["CTF","Writeups","HACKDAY 2024 Qualification","🔒 Crypto"]
 author: "Sirius14"
 showToc: true
 TocOpen: false
@@ -9,6 +9,7 @@ draft: false
 hidemeta: false
 comments: false
 description: "HACKDAY 2024 Qualification Crypto challenge by Chelinka"
+summary:  "HACKDAY 2024 Qualification Crypto challenge by Chelinka"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -124,6 +125,7 @@ print(bytes.fromhex(hex(pt)[2:]))
 {{</highlight>}}
 
 And we obtain : `ajniN eturB - EVE locotorp wolloF - denwp tidnaB SD`
-When reverse this result : `DS Bandit pwned - Follow protocol EVE - Brute Ninja`
+
+When reversing this result : `DS Bandit pwned - Follow protocol EVE - Brute Ninja`
 
 So flag is : __HACKDAY{EVE}__

@@ -1,7 +1,7 @@
 ---
-title: "Logmein"
+title: "🔍 Logmein"
 date: 2024-01-21T22:26:56+01:00
-tags: ["CTF","Writeups","HACKDAY 2024 Qualification","Forensic"]
+tags: ["CTF","Writeups","HACKDAY 2024 Qualification","🔍 Forensic"]
 author: "Sirius14"
 showToc: true
 TocOpen: false
@@ -9,6 +9,7 @@ draft: false
 hidemeta: false
 comments: false
 description: "HACKDAY 2024 Qualification Forensic challenge by ZEN"
+summary: "HACKDAY 2024 Qualification Forensic challenge by ZEN"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false

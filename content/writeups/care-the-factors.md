@@ -1,7 +1,7 @@
 ---
-title: "Care The Factors"
+title: "🔒 Care The Factors"
 date: 2024-01-21T16:00:10+01:00
-tags: ["CTF","Writeups","HACKDAY 2024 Qualification","Crypto"]
+tags: ["CTF","Writeups","HACKDAY 2024 Qualification","🔒 Crypto"]
 author: "Sirius14"
 showToc: true
 TocOpen: false
@@ -9,7 +9,8 @@ draft: false
 hidemeta: false
 comments: false
 description: "HACKDAY 2024 Qualification Crypto challenge by D0ppl3gang3r"
-disableHLJS: false # to disable highlightjs
+summary: "HACKDAY 2024 Qualification Crypto challenge by D0ppl3gang3r"
+disableHLJS: true # to disable highlightjs
 disableShare: false
 hideSummary: false
 searchHidden: true
