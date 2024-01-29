@@ -89,11 +89,11 @@ E = EllipticCurve(F,[A,B])
 P = E.point(P)
 Q = E.point(Q)
 
-primes = [2, 3, 7, 43, 349, 409, 6199, 344222059, 58853094821, 162989330351, 284121766519, 940658041742936711869] # you can use E.order() to get it
+primes = [2, 3, 7, 43, 349, 409, 6199, 344222059, 58853094821, 162989330351, 284121766519, 940658041742936711869] # you can use factor(E.order()) to get it
 
 dlogs = []
 for fac in primes:
-    t = int(G.order()) // int(fac)
+    t = int(P.order()) // int(fac)
     dlog = discrete_log(t*Q, t*P, operation='+')
     dlogs.append(dlog)
 {{</highlight>}}
