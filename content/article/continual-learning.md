@@ -1,5 +1,5 @@
 ---
-title: "Continal Learning"
+title: "Continual Learning"
 date: 2024-01-29T14:46:56+01:00
 tags: ["AI","Article","Pytorch","Python","Continual Learning"]
 author: "Sirius14"
