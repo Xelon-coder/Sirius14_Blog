@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTF on Sirius14 Blog</title>
+    <link>https://xelon-coder.github.io/Sirius14_Blog/tags/ctf/</link>
+    <description>Recent content in CTF on Sirius14 Blog</description>
+    <image>
+      <title>Sirius14 Blog</title>
+      <url>https://xelon-coder.github.io/Sirius14_Blog/img/logo.png</url>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/img/logo.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language></language>
+    <lastBuildDate>Mon, 22 Jan 2024 17:37:46 +0100</lastBuildDate>
+    <atom:link href="https://xelon-coder.github.io/Sirius14_Blog/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>⚙️ Oh My PAM</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/writeups/oh-my-pam/</link>
+      <pubDate>Mon, 22 Jan 2024 17:37:46 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/writeups/oh-my-pam/</guid>
+      <description>HACKDAY 2024 Qualification Reverse challenge by Chelinka</description>
+    </item>
+    <item>
+      <title>🔒 I Am Blocked</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/writeups/i-am-blocked/</link>
+      <pubDate>Mon, 22 Jan 2024 16:45:17 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/writeups/i-am-blocked/</guid>
+      <description>HACKDAY 2024 Qualification Crypto challenge by Chelinka</description>
+    </item>
+    <item>
+      <title>🖼️ Hackemon</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/writeups/hackemon/</link>
+      <pubDate>Mon, 22 Jan 2024 15:08:53 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/writeups/hackemon/</guid>
+      <description>HACKDAY 2024 Qualification Steganography challenge by Yam</description>
+    </item>
+    <item>
+      <title>🖼️ Sound Zero</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/writeups/sound-zero/</link>
+      <pubDate>Sun, 21 Jan 2024 23:09:19 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/writeups/sound-zero/</guid>
+      <description>HACKDAY 2024 Qualification Steganography challenge by Didouad</description>
+    </item>
+    <item>
+      <title>🔍 Logmein</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/writeups/logmein/</link>
+      <pubDate>Sun, 21 Jan 2024 22:26:56 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/writeups/logmein/</guid>
+      <description>HACKDAY 2024 Qualification Forensic challenge by ZEN</description>
+    </item>
+    <item>
+      <title>🔒 Again and Again Ect</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/writeups/again-and-again-ect/</link>
+      <pubDate>Sun, 21 Jan 2024 21:35:34 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/writeups/again-and-again-ect/</guid>
+      <description>HACKDAY 2024 Qualification Crypto challenge by Chelinka</description>
+    </item>
+    <item>
+      <title>🔒 Show Me the Way</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/writeups/show-me-the-way/</link>
+      <pubDate>Sun, 21 Jan 2024 20:43:34 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/writeups/show-me-the-way/</guid>
+      <description>HACKDAY 2024 Qualification Crypto challenge by Chelinka</description>
+    </item>
+    <item>
+      <title>🔒 Care The Factors</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/writeups/care-the-factors/</link>
+      <pubDate>Sun, 21 Jan 2024 16:00:10 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/writeups/care-the-factors/</guid>
+      <description>HACKDAY 2024 Qualification Crypto challenge by D0ppl3gang3r</description>
+    </item>
+  </channel>
+</rss>

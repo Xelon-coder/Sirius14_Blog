@@ -1,5 +1,5 @@
 ---
-title: "Continual Learning"
+title: "📝 Continual Learning: Introduction"
 date: 2024-01-29T14:46:56+01:00
 tags: ["AI","Article","Pytorch","Python","Continual Learning"]
 author: "Sirius14"
@@ -183,7 +183,7 @@ store an additional component, which leave us less size for representatives.
 ![Der++](/Sirius14_Blog/img/article/cl_8.png)
 *Figure 8: Der++ schema*
 
-## Conlusion
+## Conclusion
 
 Continual Learning algorithms concept is still young and Machine learning algorithms continue to outperform them in terms of performance. However usage is not the same, and may be in 10 years catastrophic forgetting will no longer be an issue. Then CL could be very useful in our daily lives. This area of research is vast and each year new algorithms arrive, but we are still in the early
 stages. Over this report I explore the implementation and deployment part of a distributed testbed.

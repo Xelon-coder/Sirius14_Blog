@@ -1,0 +1,162 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>🖼️ Hackemon | Sirius14 Blog</title>
+<meta name=keywords content="CTF,Writeups,HACKDAY 2024 Qualification,🖼️ Stego">
+<meta name=description content="HACKDAY 2024 Qualification Steganography challenge by Yam">
+<meta name=author content="Sirius14">
+<link rel=canonical href=https://xelon-coder.github.io/Sirius14_Blog/writeups/hackemon/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/Sirius14_Blog/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z+V9+cO1A=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<link rel=icon type=image/png sizes=16x16 href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<link rel=icon type=image/png sizes=32x32 href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<link rel=apple-touch-icon href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<link rel=mask-icon href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-123-45','auto'),ga('send','pageview'))</script><meta property="og:title" content="🖼️ Hackemon">
+<meta property="og:description" content="HACKDAY 2024 Qualification Steganography challenge by Yam">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xelon-coder.github.io/Sirius14_Blog/writeups/hackemon/"><meta property="og:image" content="https://xelon-coder.github.io/Sirius14_Blog/img/logo.png"><meta property="article:section" content="writeups">
+<meta property="article:published_time" content="2024-01-22T15:08:53+01:00">
+<meta property="article:modified_time" content="2024-01-22T15:08:53+01:00"><meta property="og:site_name" content="Sirius14 Blog">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://xelon-coder.github.io/Sirius14_Blog/img/logo.png">
+<meta name=twitter:title content="🖼️ Hackemon">
+<meta name=twitter:description content="HACKDAY 2024 Qualification Steganography challenge by Yam">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Writeups","item":"https://xelon-coder.github.io/Sirius14_Blog/writeups/"},{"@type":"ListItem","position":2,"name":"🖼️ Hackemon","item":"https://xelon-coder.github.io/Sirius14_Blog/writeups/hackemon/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"🖼️ Hackemon","name":"🖼️ Hackemon","description":"HACKDAY 2024 Qualification Steganography challenge by Yam","keywords":["CTF","Writeups","HACKDAY 2024 Qualification","🖼️ Stego"],"articleBody":"An agent who has infiltrated the syndicate has sent us a message giving us information about Syndicate. We need to decrypt the message to retrieve the information. The undercover agent said in his message that he wanted to show you the last pokemon he’d captured in his game. Connect to the instance using netcat to begin the challenge.\nnc challenges.hackday.fr 50392\nNetcat When we connect to the netcat instance we need to specify an email address, then this message appeared :\n1 2 3 4  Now I have to confirm your pokemon skills Can you please specify, in the order you receive them, the Japanese names of each pokemon that I sent you? Ex: rattata -- koratta   Then I checked my email address and found these 5 pokemon cards With this site I retreive the japanese name, and valid the first step:\n pidgey - poppo squirtle - zenigame bulbasaur - fushigidane charmander - hitokage vulpix - rokon  After few seconds I receive a QR code. Instagram This QR code lead us to an instagram account with a unique post. In this post we have just one comment with a link :\nThis one is not bad either! https://ibb.co/q0P0ThX\nOnce clicked on the link, we obtain another image: I pass this image in aperisolve but nothing to report.\nPika pika I try to test with another famous tool in steganography called Stegseek, we can bruteforce password and find a hidden file named :\ni_want_to_tell_u_smth.txt\nIt’s pika lang, an esoteric language used in steganography, with dcode we can interpret this code and obtain:\nThe flag is Hacday{reverse the name of the Pokemon below}\nSo flag is : HACKDAY{uhcakip}\n","wordCount":"276","inLanguage":"en","datePublished":"2024-01-22T15:08:53+01:00","dateModified":"2024-01-22T15:08:53+01:00","author":{"@type":"Person","name":"Sirius14"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xelon-coder.github.io/Sirius14_Blog/writeups/hackemon/"},"publisher":{"@type":"Organization","name":"Sirius14 Blog","logo":{"@type":"ImageObject","url":"https://xelon-coder.github.io/Sirius14_Blog/img/logo.png"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://xelon-coder.github.io/Sirius14_Blog/ accesskey=h title="Home (Alt + H)">
+<img src=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png alt aria-label=logo height=35>Home</a>
+<div class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</div>
+</div>
+<ul id=menu>
+<li>
+<a href=https://xelon-coder.github.io/Sirius14_Blog/writeups/ title=Writeups>
+<span>Writeups</span>
+</a>
+</li>
+<li>
+<a href=https://xelon-coder.github.io/Sirius14_Blog/article/ title=Article>
+<span>Article</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<h1 class="post-title entry-hint-parent">
+🖼️ Hackemon
+</h1>
+<div class=post-description>
+HACKDAY 2024 Qualification Steganography challenge by Yam
+</div>
+<div class=post-meta><span title="2024-01-22 15:08:53 +0100 CET">January 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sirius14&nbsp;|&nbsp;<a href=https://xelon-coder.github.io/Sirius14_Blog//writeups/hackemon.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div>
+</header> <div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><nav id=TableOfContents>
+<ul>
+<li><a href=#netcat>Netcat</a></li>
+<li><a href=#instagram>Instagram</a></li>
+<li><a href=#pika-pika>Pika pika</a></li>
+</ul>
+</nav>
+</div>
+</details>
+</div>
+<div class=post-content><p>An agent who has infiltrated the syndicate has sent us a message giving us information about Syndicate. We need to decrypt the message to retrieve the information. The undercover agent said in his message that he wanted to show you the last pokemon he&rsquo;d captured in his game. Connect to the instance using netcat to begin the challenge.</p>
+<p><code>nc challenges.hackday.fr 50392</code></p>
+<h2 id=netcat>Netcat<a hidden class=anchor aria-hidden=true href=#netcat>#</a></h2>
+<p>When we connect to the netcat instance we need to specify an email address, then this message appeared :</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-txt data-lang=txt>Now I have to confirm your pokemon skills
+Can you please specify, in the order you receive them, the Japanese names
+of each pokemon that I sent you?
+Ex: rattata --&gt; koratta</code></pre></td></tr></table>
+</div>
+</div>
+<p>Then I checked my email address and found these 5 pokemon cards
+<img loading=lazy src=/Sirius14_Blog/img/writeups/hackemon_1.png alt="pokemon cards">
+With this <a href=https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_Pok%C3%A9mon_names>site</a> I retreive the japanese name, and valid the first step:</p>
+<ul>
+<li>pidgey -> <code>poppo</code></li>
+<li>squirtle -> <code>zenigame</code></li>
+<li>bulbasaur -> <code>fushigidane</code></li>
+<li>charmander -> <code>hitokage</code></li>
+<li>vulpix -> <code>rokon</code></li>
+</ul>
+<p>After few seconds I receive a QR code.
+<img loading=lazy src=/Sirius14_Blog/img/writeups/hackemon_2.png alt="pokemon cards">
+</p>
+<h2 id=instagram>Instagram<a hidden class=anchor aria-hidden=true href=#instagram>#</a></h2>
+<p>This QR code lead us to an instagram account with a unique post. In this post we have just one comment with a link :</p>
+<p><code>This one is not bad either! https://ibb.co/q0P0ThX</code></p>
+<p>Once clicked on the link, we obtain another image:
+<img loading=lazy src=/Sirius14_Blog/img/writeups/hackemon_3.jpg alt="hackday card">
+</p>
+<p>I pass this image in <a href=https://www.aperisolve.com/>aperisolve</a> but nothing to report.</p>
+<h2 id=pika-pika>Pika pika<a hidden class=anchor aria-hidden=true href=#pika-pika>#</a></h2>
+<p>I try to test with another famous tool in steganography called Stegseek, we can bruteforce password and find a hidden file named :</p>
+<p><code>i_want_to_tell_u_smth.txt</code></p>
+<p><img loading=lazy src=/Sirius14_Blog/img/writeups/hackemon_4.png alt="pika pika file">
+</p>
+<p>It&rsquo;s pika lang, an esoteric language used in steganography, with <a href=https://www.dcode.fr/langage-pikalang>dcode</a> we can interpret this code and obtain:</p>
+<p><code>The flag is Hacday{reverse the name of the Pokemon below}</code></p>
+<p>So flag is : <strong>HACKDAY{uhcakip}</strong></p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://xelon-coder.github.io/Sirius14_Blog/tags/ctf/>CTF</a></li>
+<li><a href=https://xelon-coder.github.io/Sirius14_Blog/tags/writeups/>Writeups</a></li>
+<li><a href=https://xelon-coder.github.io/Sirius14_Blog/tags/hackday-2024-qualification/>HACKDAY 2024 Qualification</a></li>
+<li><a href=https://xelon-coder.github.io/Sirius14_Blog/tags/%EF%B8%8F-stego/>🖼️ Stego</a></li>
+</ul>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2024 <a href=https://xelon-coder.github.io/Sirius14_Blog/>Sirius14 Blog</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

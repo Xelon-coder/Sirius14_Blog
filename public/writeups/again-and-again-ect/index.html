@@ -1,0 +1,214 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>🔒 Again and Again Ect | Sirius14 Blog</title>
+<meta name=keywords content="CTF,Writeups,HACKDAY 2024 Qualification,🔒 Crypto">
+<meta name=description content="HACKDAY 2024 Qualification Crypto challenge by Chelinka">
+<meta name=author content="Sirius14">
+<link rel=canonical href=https://xelon-coder.github.io/Sirius14_Blog/writeups/again-and-again-ect/>
+<meta name=google-site-verification content="XYZabc">
+<meta name=yandex-verification content="XYZabc">
+<meta name=msvalidate.01 content="XYZabc">
+<link crossorigin=anonymous href=/Sirius14_Blog/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z+V9+cO1A=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<link rel=icon type=image/png sizes=16x16 href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<link rel=icon type=image/png sizes=32x32 href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<link rel=apple-touch-icon href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<link rel=mask-icon href=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-123-45','auto'),ga('send','pageview'))</script><meta property="og:title" content="🔒 Again and Again Ect">
+<meta property="og:description" content="HACKDAY 2024 Qualification Crypto challenge by Chelinka">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xelon-coder.github.io/Sirius14_Blog/writeups/again-and-again-ect/"><meta property="og:image" content="https://xelon-coder.github.io/Sirius14_Blog/img/logo.png"><meta property="article:section" content="writeups">
+<meta property="article:published_time" content="2024-01-21T21:35:34+01:00">
+<meta property="article:modified_time" content="2024-01-21T21:35:34+01:00"><meta property="og:site_name" content="Sirius14 Blog">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://xelon-coder.github.io/Sirius14_Blog/img/logo.png">
+<meta name=twitter:title content="🔒 Again and Again Ect">
+<meta name=twitter:description content="HACKDAY 2024 Qualification Crypto challenge by Chelinka">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Writeups","item":"https://xelon-coder.github.io/Sirius14_Blog/writeups/"},{"@type":"ListItem","position":2,"name":"🔒 Again and Again Ect","item":"https://xelon-coder.github.io/Sirius14_Blog/writeups/again-and-again-ect/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"🔒 Again and Again Ect","name":"🔒 Again and Again Ect","description":"HACKDAY 2024 Qualification Crypto challenge by Chelinka","keywords":["CTF","Writeups","HACKDAY 2024 Qualification","🔒 Crypto"],"articleBody":"We’ve intercepted an outgoing communication from the Syndicate’s backup server. It looks like a member has made himself an emergency door so he can chat with someone inside… But what did he want to say? Decrypt the conversation using the fact that they are talking about Hack107 and one of their team member…\nFirst look To begin this challenge we have 4 files in our disposition, but the all are encrypted. No hint, no other information to guide us. Here is the content :\n1 2 3 4 5 6 7  File 1: YiEjKycKVGgHX3UFFxVCKAsPVBYIPBEdF3xtKDgEXWMGJAEXLC5ZQFg4bl82RjNnLwlDUQwoHSdabzxCXy00ZE0oFlg5ODpZV0cUARcpNC9UNVs9XDRPAA4cFBAANllSMiRCCFxEDxZnWDIrN2wVPWwpCCIhETknTkYONjhGTgU+HwcXZgICEl1VFE0VKCFeSTk5EVJMTBsPVxBfA0slPCBQEwAHPxZ5PD9HOj8BMWEKJSFHKzhZH2sJOBAncUdtZFYgMiUBRX5/YhscABUEJyoZMVwjbTQCLlNfM0UtLHE4LicUJgBEIi10bg== File 2: FWlvACkEWnlDB3UaFxMWKBcLVBEFK0cZBjMoByJQW19PMwIgYzFQGB0fYD0= File 3: ZSgqKTsCETsWXjFKDwJCOBYZBkUMKgMKACM+RXYEXFQBZxMqNjAVGhcaK1l1FjcpMkZ/VgglSyZbaDwKUmwiIUozV1h5bRFQFFhXXlVrKD8AIF48VXMbHANZVQQCKhkGRS4LREQMCFM0XCYiPGJr File 4: ZSE9Li0ERWlTfSxKDAIVYRgIEBcIPRRYDCNtHzccUR8cJAsjIjZcXkoxKVo4XzppNQlbUQUnD2JZMWgWWCc1KhkuClgcDBp6M3I/FSYEBwQ7AGgHYRYwJyc0cTgqCi4tNQ02O3kwPiwJdgQYAQ0nFzFqSmwPGSghXwJRdzwTQx4iVhJSMhgCU1BaDggCM3QfB1EsD1JMRhEMEhkefQ==   All these file are encrypted then encoded in base64. We have a plaintext : Hack107 which could be useful\nXor Xor Xor Xor Let’s start with this hypothesis (you understand why later) : All these file are encrypted with the same key. Majority of stream cipher or block cipher use xor operation between a stream (depend on key) and plaintext a give the ciphertext. Now what impact does the key have ? Why it’s so important to change key between 2 files ?\nConsider p1,p2,c1,c2 and k respectively : plaintext_1,plaintext_2,ciphertext_1,ciphertext_2 and key If we use the same key to encrypt p1 and p2 we have :\n c1 = p1^k c2 = p2^k  But if we rearrange the terms :\n c1^c2 = p1^k^p2^k = p1^p2 p2 = c1^c2^p1  Thus it is possible to retreive plaintext_2 with a known plaintext_1 !!! This is our case we know that Hack107 is at least in one of these 4 files.\nLet’s code a python script to test if our hypothesis is the good one: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  import base64 def byte_xor(ba1, ba2): return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)]) conv1 = base64.b64decode(\"YiEjKycKVGgHX3UFFxVCKAsPVBYIPBEdF3xtKDgEXWMGJAEXLC5ZQFg4bl82RjNnLwlDUQwoHSdabzxCXy00ZE0oFlg5ODpZV0cUARcpNC9UNVs9XDRPAA4cFBAANllSMiRCCFxEDxZnWDIrN2wVPWwpCCIhETknTkYONjhGTgU+HwcXZgICEl1VFE0VKCFeSTk5EVJMTBsPVxBfA0slPCBQEwAHPxZ5PD9HOj8BMWEKJSFHKzhZH2sJOBAncUdtZFYgMiUBRX5/YhscABUEJyoZMVwjbTQCLlNfM0UtLHE4LicUJgBEIi10bg==\") conv2 = base64.b64decode(\"FWlvACkEWnlDB3UaFxMWKBcLVBEFK0cZBjMoByJQW19PMwIgYzFQGB0fYD0=\") conv3 = base64.b64decode(\"ZSgqKTsCETsWXjFKDwJCOBYZBkUMKgMKACM+RXYEXFQBZxMqNjAVGhcaK1l1FjcpMkZ/VgglSyZbaDwKUmwiIUozV1h5bRFQFFhXXlVrKD8AIF48VXMbHANZVQQCKhkGRS4LREQMCFM0XCYiPGJr\") conv4 = base64.b64decode(\"ZSE9Li0ERWlTfSxKDAIVYRgIEBcIPRRYDCNtHzccUR8cJAsjIjZcXkoxKVo4XzppNQlbUQUnD2JZMWgWWCc1KhkuClgcDBp6M3I/FSYEBwQ7AGgHYRYwJyc0cTgqCi4tNQ02O3kwPiwJdgQYAQ0nFzFqSmwPGSghXwJRdzwTQx4iVhJSMhgCU1BaDggCM3QfB1EsD1JMRhEMEhkefQ==\") plaintext = b\"Hack107\" for i in range(len(conv2)): tmp = byte_xor(conv1,conv2) res = byte_xor(tmp,i*b\"\\x00\"+plaintext) # test every position print(res)  \nIn this script I only test conv1 and conv2, when i=3 we have: wHLcome to So plaintext_1 start with Welcome to and we can guess like that the beginning of the other plaintext.\nGuessing part After few plaintext I was stuck here:\n p1 : Welcome to our irc server, AntiRickRoll p2 :  - Hack107 putting the accent on the se p3 : Please send me your address, then your  p4 : Perfect! My new address is vale.scafati  Therefore I need to guess the most suitable word to use. I have just brutforced p2 with all possibilities of 5,6 or 7 letters (7 was the max otherwise we overflow size of p2), and I found the correct word : seven. Yeah it’s quite logic ! Then I continue and finish to decrypt enough part to obtain the flag, it was easier to do because p2 is reuse in p3:\n p1 : Welcome to our irc server, AntiRickRoll. I hope you haven't had too much trouble along the way. We'll be able to ... p2 :  - Hack107 putting the accent on the seven.\\n p3 : Please send me your address, then your token, and I'll do the rest. - Hack107 putting the accent on the seven.\\n p4 : Perfect! My new address is vale.scafati02@gmail.com and my token is HACKDAY{DO_NOT_USE_SAME_KEY_PLS_ITS_NOT_SAFE}  Flag : HACKDAY{DO_NOT_USE_SAME_KEY_PLS_ITS_NOT_SAFE}\n","wordCount":"555","inLanguage":"en","datePublished":"2024-01-21T21:35:34+01:00","dateModified":"2024-01-21T21:35:34+01:00","author":{"@type":"Person","name":"Sirius14"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xelon-coder.github.io/Sirius14_Blog/writeups/again-and-again-ect/"},"publisher":{"@type":"Organization","name":"Sirius14 Blog","logo":{"@type":"ImageObject","url":"https://xelon-coder.github.io/Sirius14_Blog/img/logo.png"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://xelon-coder.github.io/Sirius14_Blog/ accesskey=h title="Home (Alt + H)">
+<img src=https://xelon-coder.github.io/Sirius14_Blog/img/logo.png alt aria-label=logo height=35>Home</a>
+<div class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</div>
+</div>
+<ul id=menu>
+<li>
+<a href=https://xelon-coder.github.io/Sirius14_Blog/writeups/ title=Writeups>
+<span>Writeups</span>
+</a>
+</li>
+<li>
+<a href=https://xelon-coder.github.io/Sirius14_Blog/article/ title=Article>
+<span>Article</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<h1 class="post-title entry-hint-parent">
+🔒 Again and Again Ect
+</h1>
+<div class=post-description>
+HACKDAY 2024 Qualification Crypto challenge by Chelinka
+</div>
+<div class=post-meta><span title="2024-01-21 21:35:34 +0100 CET">January 21, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Sirius14&nbsp;|&nbsp;<a href=https://xelon-coder.github.io/Sirius14_Blog//writeups/again-and-again-ect.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div>
+</header> <div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><nav id=TableOfContents>
+<ul>
+<li><a href=#first-look>First look</a></li>
+<li><a href=#xor-xor-xor-xor>Xor Xor Xor Xor</a></li>
+<li><a href=#guessing-part>Guessing part</a></li>
+</ul>
+</nav>
+</div>
+</details>
+</div>
+<div class=post-content><p>We&rsquo;ve intercepted an outgoing communication from the Syndicate&rsquo;s backup server. It looks like a member has made himself an emergency door so he can chat with someone inside&mldr; But what did he want to say? Decrypt the conversation using the fact that they are talking about <code>Hack107</code> and one of their team member&mldr;</p>
+<h2 id=first-look>First look<a hidden class=anchor aria-hidden=true href=#first-look>#</a></h2>
+<p>To begin this challenge we have 4 files in our disposition, but the all are encrypted. No hint, no other information to guide us. Here is the content :</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-txt data-lang=txt>File 1: YiEjKycKVGgHX3UFFxVCKAsPVBYIPBEdF3xtKDgEXWMGJAEXLC5ZQFg4bl82RjNnLwlDUQwoHSdabzxCXy00ZE0oFlg5ODpZV0cUARcpNC9UNVs9XDRPAA4cFBAANllSMiRCCFxEDxZnWDIrN2wVPWwpCCIhETknTkYONjhGTgU+HwcXZgICEl1VFE0VKCFeSTk5EVJMTBsPVxBfA0slPCBQEwAHPxZ5PD9HOj8BMWEKJSFHKzhZH2sJOBAncUdtZFYgMiUBRX5/YhscABUEJyoZMVwjbTQCLlNfM0UtLHE4LicUJgBEIi10bg==
+
+File 2: FWlvACkEWnlDB3UaFxMWKBcLVBEFK0cZBjMoByJQW19PMwIgYzFQGB0fYD0=
+
+File 3: ZSgqKTsCETsWXjFKDwJCOBYZBkUMKgMKACM+RXYEXFQBZxMqNjAVGhcaK1l1FjcpMkZ/VgglSyZbaDwKUmwiIUozV1h5bRFQFFhXXlVrKD8AIF48VXMbHANZVQQCKhkGRS4LREQMCFM0XCYiPGJr
+
+File 4: ZSE9Li0ERWlTfSxKDAIVYRgIEBcIPRRYDCNtHzccUR8cJAsjIjZcXkoxKVo4XzppNQlbUQUnD2JZMWgWWCc1KhkuClgcDBp6M3I/FSYEBwQ7AGgHYRYwJyc0cTgqCi4tNQ02O3kwPiwJdgQYAQ0nFzFqSmwPGSghXwJRdzwTQx4iVhJSMhgCU1BaDggCM3QfB1EsD1JMRhEMEhkefQ==</code></pre></td></tr></table>
+</div>
+</div>
+<p>All these file are encrypted then encoded in base64. We have a plaintext : <code>Hack107</code> which could be useful</p>
+<h2 id=xor-xor-xor-xor>Xor Xor Xor Xor<a hidden class=anchor aria-hidden=true href=#xor-xor-xor-xor>#</a></h2>
+<p>Let&rsquo;s start with this hypothesis (you understand why later) : All these file are encrypted with the same key.
+Majority of stream cipher or block cipher use xor operation between a stream (depend on key) and plaintext a give the ciphertext. Now what impact does the key have ? Why it&rsquo;s so important to change key between 2 files ?</p>
+<p>Consider p1,p2,c1,c2 and k respectively : plaintext_1,plaintext_2,ciphertext_1,ciphertext_2 and key
+If we use the same key to encrypt p1 and p2 we have :</p>
+<ul>
+<li><code>c1 = p1^k</code></li>
+<li><code>c2 = p2^k</code></li>
+</ul>
+<p>But if we rearrange the terms :</p>
+<ul>
+<li><code>c1^c2 = p1^k^p2^k = p1^p2</code></li>
+<li><code>p2 = c1^c2^p1</code></li>
+</ul>
+<p>Thus it is possible to retreive plaintext_2 with a known plaintext_1 !!!
+This is our case we know that <code>Hack107</code> is at least in one of these 4 files.</p>
+<p>Let&rsquo;s code a python script to test if our hypothesis is the good one:
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-txt data-lang=txt>import base64
+
+def byte_xor(ba1, ba2):
+    return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
+
+conv1 = base64.b64decode(&#34;YiEjKycKVGgHX3UFFxVCKAsPVBYIPBEdF3xtKDgEXWMGJAEXLC5ZQFg4bl82RjNnLwlDUQwoHSdabzxCXy00ZE0oFlg5ODpZV0cUARcpNC9UNVs9XDRPAA4cFBAANllSMiRCCFxEDxZnWDIrN2wVPWwpCCIhETknTkYONjhGTgU+HwcXZgICEl1VFE0VKCFeSTk5EVJMTBsPVxBfA0slPCBQEwAHPxZ5PD9HOj8BMWEKJSFHKzhZH2sJOBAncUdtZFYgMiUBRX5/YhscABUEJyoZMVwjbTQCLlNfM0UtLHE4LicUJgBEIi10bg==&#34;)
+conv2 = base64.b64decode(&#34;FWlvACkEWnlDB3UaFxMWKBcLVBEFK0cZBjMoByJQW19PMwIgYzFQGB0fYD0=&#34;)
+conv3 = base64.b64decode(&#34;ZSgqKTsCETsWXjFKDwJCOBYZBkUMKgMKACM+RXYEXFQBZxMqNjAVGhcaK1l1FjcpMkZ/VgglSyZbaDwKUmwiIUozV1h5bRFQFFhXXlVrKD8AIF48VXMbHANZVQQCKhkGRS4LREQMCFM0XCYiPGJr&#34;)
+conv4 = base64.b64decode(&#34;ZSE9Li0ERWlTfSxKDAIVYRgIEBcIPRRYDCNtHzccUR8cJAsjIjZcXkoxKVo4XzppNQlbUQUnD2JZMWgWWCc1KhkuClgcDBp6M3I/FSYEBwQ7AGgHYRYwJyc0cTgqCi4tNQ02O3kwPiwJdgQYAQ0nFzFqSmwPGSghXwJRdzwTQx4iVhJSMhgCU1BaDggCM3QfB1EsD1JMRhEMEhkefQ==&#34;)
+
+plaintext = b&#34;Hack107&#34;
+
+for i in range(len(conv2)):
+    tmp = byte_xor(conv1,conv2)
+    res = byte_xor(tmp,i*b&#34;\x00&#34;+plaintext) # test every position
+    print(res)</code></pre></td></tr></table>
+</div>
+</div></p>
+<p>In this script I only test conv1 and conv2, when i=3 we have: <code>wHLcome to</code>
+So plaintext_1 start with Welcome to and we can guess like that the beginning of the other plaintext.</p>
+<h2 id=guessing-part>Guessing part<a hidden class=anchor aria-hidden=true href=#guessing-part>#</a></h2>
+<p>After few plaintext I was stuck here:</p>
+<ul>
+<li>p1 : <code>Welcome to our irc server, AntiRickRoll</code></li>
+<li>p2 : <code> - Hack107 putting the accent on the se</code></li>
+<li>p3 : <code>Please send me your address, then your </code></li>
+<li>p4 : <code>Perfect! My new address is vale.scafati</code></li>
+</ul>
+<p>Therefore I need to guess the most suitable word to use. I have just brutforced p2 with all possibilities of 5,6 or 7 letters (7 was the max otherwise we overflow size of p2), and I found the correct word : <code>seven</code>. Yeah it&rsquo;s quite logic !
+Then I continue and finish to decrypt enough part to obtain the flag, it was easier to do because p2 is reuse in p3:</p>
+<ul>
+<li>p1 : <code>Welcome to our irc server, AntiRickRoll. I hope you haven't had too much trouble along the way. We'll be able to ...</code></li>
+<li>p2 : <code> - Hack107 putting the accent on the seven.\n</code></li>
+<li>p3 : <code>Please send me your address, then your token, and I'll do the rest. - Hack107 putting the accent on the seven.\n</code></li>
+<li>p4 : <code>Perfect! My new address is vale.scafati02@gmail.com and my token is HACKDAY{DO_NOT_USE_SAME_KEY_PLS_ITS_NOT_SAFE}</code></li>
+</ul>
+<p>Flag : <strong>HACKDAY{DO_NOT_USE_SAME_KEY_PLS_ITS_NOT_SAFE}</strong></p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://xelon-coder.github.io/Sirius14_Blog/tags/ctf/>CTF</a></li>
+<li><a href=https://xelon-coder.github.io/Sirius14_Blog/tags/writeups/>Writeups</a></li>
+<li><a href=https://xelon-coder.github.io/Sirius14_Blog/tags/hackday-2024-qualification/>HACKDAY 2024 Qualification</a></li>
+<li><a href=https://xelon-coder.github.io/Sirius14_Blog/tags/crypto/>🔒 Crypto</a></li>
+</ul>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2024 <a href=https://xelon-coder.github.io/Sirius14_Blog/>Sirius14 Blog</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

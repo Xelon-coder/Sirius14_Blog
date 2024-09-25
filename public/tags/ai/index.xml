@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on Sirius14 Blog</title>
+    <link>https://xelon-coder.github.io/Sirius14_Blog/tags/ai/</link>
+    <description>Recent content in AI on Sirius14 Blog</description>
+    <image>
+      <title>Sirius14 Blog</title>
+      <url>https://xelon-coder.github.io/Sirius14_Blog/img/logo.png</url>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/img/logo.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language></language>
+    <lastBuildDate>Mon, 29 Jan 2024 14:46:56 +0100</lastBuildDate>
+    <atom:link href="https://xelon-coder.github.io/Sirius14_Blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continual Learning</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/article/continual-learning/</link>
+      <pubDate>Mon, 29 Jan 2024 14:46:56 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/article/continual-learning/</guid>
+      <description>Accelerating AI/ML Workloads with continual learning</description>
+    </item>
+  </channel>
+</rss>

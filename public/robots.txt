@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://xelon-coder.github.io/Sirius14_Blog/sitemap.xml

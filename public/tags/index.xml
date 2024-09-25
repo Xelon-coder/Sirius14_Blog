@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Sirius14 Blog</title>
+    <link>https://xelon-coder.github.io/Sirius14_Blog/tags/</link>
+    <description>Recent content in Tags on Sirius14 Blog</description>
+    <image>
+      <title>Sirius14 Blog</title>
+      <url>https://xelon-coder.github.io/Sirius14_Blog/img/logo.png</url>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/img/logo.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language></language>
+    <lastBuildDate>Mon, 29 Jan 2024 14:46:56 +0100</lastBuildDate>
+    <atom:link href="https://xelon-coder.github.io/Sirius14_Blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/ai/</link>
+      <pubDate>Mon, 29 Jan 2024 14:46:56 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Article</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/article/</link>
+      <pubDate>Mon, 29 Jan 2024 14:46:56 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/article/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Continual Learning</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/continual-learning/</link>
+      <pubDate>Mon, 29 Jan 2024 14:46:56 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/continual-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/python/</link>
+      <pubDate>Mon, 29 Jan 2024 14:46:56 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pytorch</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/pytorch/</link>
+      <pubDate>Mon, 29 Jan 2024 14:46:56 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CTF</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/ctf/</link>
+      <pubDate>Mon, 22 Jan 2024 17:37:46 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/ctf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HACKDAY 2024 Qualification</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/hackday-2024-qualification/</link>
+      <pubDate>Mon, 22 Jan 2024 17:37:46 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/hackday-2024-qualification/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Writeups</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/writeups/</link>
+      <pubDate>Mon, 22 Jan 2024 17:37:46 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/writeups/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>⚙️ Reverse</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/%EF%B8%8F-reverse/</link>
+      <pubDate>Mon, 22 Jan 2024 17:37:46 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/%EF%B8%8F-reverse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>🔒 Crypto</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/crypto/</link>
+      <pubDate>Mon, 22 Jan 2024 16:45:17 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/crypto/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>🖼️ Stego</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/%EF%B8%8F-stego/</link>
+      <pubDate>Mon, 22 Jan 2024 15:08:53 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/%EF%B8%8F-stego/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>🔍 Forensic</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/forensic/</link>
+      <pubDate>Sun, 21 Jan 2024 22:26:56 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/forensic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Presentation</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/presentation/</link>
+      <pubDate>Sun, 21 Jan 2024 16:00:10 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/presentation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Who am I?</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/tags/who-am-i/</link>
+      <pubDate>Sun, 21 Jan 2024 16:00:10 +0100</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/tags/who-am-i/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
