@@ -130,13 +130,13 @@ def mitm_attack():
 
 if __name__=="__main__":
  mitm_attack()
-{{</highlight>}}
+```
 
 In a few minutes we obtain k0 and k1
 {{<highlight txt>}}
  k0 = b'If-C\xb0\xc0f\xf3\xa8\n\xff\x8e\x96g\x03"'
  k1 = b'\x94\xcb\x92Q\x95\x8b@\xfbf\xba_\x9e\x84\xba\x1a7'
-```
+{{</highlight>}}
 
 Let's decrypt the flag and finish this challenge.
 
