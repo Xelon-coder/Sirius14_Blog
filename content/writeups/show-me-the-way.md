@@ -29,7 +29,7 @@ The secret agent 007 gave us a classified file and gave us the means to read it,
 ## First look
 
 We have to our disposition 2 files, a part of source code:
-{{<highlight txt>}}
+```py
 def P(x):
 	return formula(x)
 def Q(x):
@@ -53,7 +53,7 @@ def decrypt(ct:int, d, n):
 
 flag = input("Que souhaitez-vous chiffrer ? ")
 print(encrypt(flag, e, n))
-{{</highlight>}}
+```
 
 And output :
 {{<highlight txt>}}
@@ -87,7 +87,7 @@ Wow so much 0 in it !!!
 
 I adapt sage code from this [WU](https://github.com/HackademINT/404CTF-2023/blob/main/Cryptanalyse/Trois/solve.sage), here is the code :
 
-{{<highlight txt>}}
+```sage
 E = GF(7)
 R.<X> = PolynomialRing(E)
 n_acc = N
@@ -110,19 +110,19 @@ assert n % p == 0
 assert 1 < p < n
 
 print(p)
-{{</highlight>}}
+```
 
 Bingo it works !!!
 
 Now we have a factorisation of N we can find the flag:
 
-{{<highlight txt>}}
+```py
 q = n// p
 d = pow(e, -1, (p-1) * (q-1))
 
 pt = pow(C, d, N)
 print(bytes.fromhex(hex(pt)[2:]))
-{{</highlight>}}
+```
 
 And we obtain : `ajniN eturB - EVE locotorp wolloF - denwp tidnaB SD`
 

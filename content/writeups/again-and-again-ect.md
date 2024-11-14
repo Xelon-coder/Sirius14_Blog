@@ -61,7 +61,7 @@ Thus it is possible to retreive plaintext_2 with a known plaintext_1 !!!
 This is our case we know that `Hack107` is at least in one of these 4 files.
 
 Let's code a python script to test if our hypothesis is the good one:
-{{<highlight txt>}}
+```py
 import base64
 
 def byte_xor(ba1, ba2):
@@ -78,7 +78,7 @@ for i in range(len(conv2)):
     tmp = byte_xor(conv1,conv2)
     res = byte_xor(tmp,i*b"\x00"+plaintext) # test every position
     print(res)
-{{</highlight>}}
+```
 
 In this script I only test conv1 and conv2, when i=3 we have: `wHLcome to`
 So plaintext_1 start with Welcome to and we can guess like that the beginning of the other plaintext.

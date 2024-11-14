@@ -32,7 +32,7 @@ We have 2 files, a part of source code and output. Our goal is to find n, this i
 
 In the first one we have
 
-{{<highlight txt>}}
+```sage
 def getA():
     # You have to find it yourself /:
     pass
@@ -51,7 +51,7 @@ P = E.random_element()
 n = randint(2**30, 2**60)
 Q = n * P
 flag = enc_flag(n)
-{{</highlight>}}
+```
 
 In the second one :
 {{<highlight txt>}}
@@ -67,21 +67,21 @@ We have 2 points on the curve P and Q, but we don't have A and B coefficient. As
 Thus the first step is to retreive A and B. After some research I found a crypto stack exchange [post](https://crypto.stackexchange.com/questions/97811/find-elliptic-curve-parameters-a-and-b-given-two-points-on-the-curve) explaining how to do.
 
 Here is sage code to get A and B:
-{{<highlight txt>}}
+```sage
 P_x,P_y =(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684)
 Q_x,Q_y =(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569)
 p = 1410235279292998784331797202421753874063265295308568058662741299116310072677
 
 A = (((P_y**2-Q_y**2)-(P_x**3-Q_x**3))*pow((P_x-Q_x),-1,p))%p
 B = (P_y**2 - P_x**3 - A) % p
-{{</highlight>}}
+```
 
 ## Pohlig-Hellman
 
 As p is factorable we try to use calcul discrete logarithm for enough factors of p so that the product of these is at least greater than 2**30 (because 2\*\*30 < n < 2\*\*60), if the product is greater than 2\*\*60 that would be even better.
 
 Here is the sage code for pohling Hellman:
-{{<highlight txt>}}
+```sage
 P=(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684)
 Q=(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569)
 F = FiniteField(p)
@@ -96,7 +96,7 @@ for fac in primes:
     t = int(P.order()) // int(fac)
     dlog = discrete_log(t*Q, t*P, operation='+')
     dlogs.append(dlog)
-{{</highlight>}}
+```
 
 Then last step of this algorithm is to used Chinese Reminder Theorem
 `n = crt(dlogs, primes)`

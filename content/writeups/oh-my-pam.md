@@ -52,7 +52,7 @@ P.S : We could replace the password but as you can see later original password i
 
 For the next step we can analyze tool_retriver.py
 
-{{<highlight txt>}}
+```py
 def is_inside_linux():
     return os.name == 'posix'
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     		subprocess.check_output(['rm','tool_retriever.py','SuperUltraTech30001.zip'])
     	except subprocess.CalledProcessError:
     		pass
-{{</highlight>}}
+```
 
 Here are the 3 useful functions, backdoor file is located at a url, and this address is xor with key. We can found this key like this :
 - os.name -> `posix` (main condition)

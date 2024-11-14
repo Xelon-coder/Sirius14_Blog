@@ -30,7 +30,7 @@ And I have found a way to keep my privacy (oh, oh)
 
 This challenge was a little bit tricky, plaintext is twice encrypted with two different symmetric algorithms.
 
-{{<highlight txt>}}
+```py
 class Paranoia:
  def __init__(self, keys):
  self.keys = keys
@@ -72,7 +72,7 @@ print("enc_flag  =", paranoia.encrypt(flag))
 # 6 bytes = 2**48 bits, should be bruteforce-proof anyway
 for n, k in enumerate(keys):
  print(f"k{n} = {k[3:]}")
-{{</highlight>}}
+```
 
 However, we have hints !!!
 Indeed, the script gave us the last part of each key, but considering the time complexity of brute-forcing these keys, it's not reasonable unless ...
@@ -81,7 +81,7 @@ Indeed, the script gave us the last part of each key, but considering the time c
 
 ... unless we use a specific attack name meet in the middle. The principle is to join into an intermediate value, a part encrypts the known plaintext with AES and stores the result in a correspondence table. Then a second part decrypts the ciphertext, once a correspondence is found in the table we have cracked both keys but instead of O(2*\*48) complexity we have this time O(2*\*25) that's better. Here is the Python script I use to retrieve both keys.
 
-{{<highlight txt>}}
+```py
 import itertools
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
@@ -136,7 +136,7 @@ In a few minutes we obtain k0 and k1
 {{<highlight txt>}}
  k0 = b'If-C\xb0\xc0f\xf3\xa8\n\xff\x8e\x96g\x03"'
  k1 = b'\x94\xcb\x92Q\x95\x8b@\xfbf\xba_\x9e\x84\xba\x1a7'
-{{</highlight>}}
+```
 
 Let's decrypt the flag and finish this challenge.
 

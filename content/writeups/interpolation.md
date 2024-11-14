@@ -34,8 +34,8 @@ import hashlib
 import re
 
 with open("flag.txt", "rb") as f:
- FLAG = f.read()
- assert re.match(rb"Hero{[0-9a-zA-Z_]{90}}", FLAG)
+    FLAG = f.read()
+    assert re.match(rb"Hero{[0-9a-zA-Z_]{90}}", FLAG)
 
 F = FiniteField(2**256 - 189)
 R = PolynomialRing(F, "x")
@@ -46,8 +46,8 @@ f = R(C(FLAG))
 
 points = []
 for _ in range(f.degree()):
- r = F.random_element()
- points.append([r, f(r)])
+    r = F.random_element()
+    points.append([r, f(r)])
 print(points)
 
 flag = input(">").encode().ljust(len(FLAG))
@@ -55,11 +55,11 @@ flag = input(">").encode().ljust(len(FLAG))
 g = R(C(flag))
 
 for p in points:
- if g(p[0]) != p[1]:
- print("Wrong flag!")
- break
+    if g(p[0]) != p[1]:
+    print("Wrong flag!")
+    break
 else:
- print("Congrats!")
+    print("Congrats!")
 ```
 
 The goal is to retrieve the correct coefficients, then we will need to brute force a pair of 4 bytes in all the charsets to compare their hash value with coefficients.
@@ -77,11 +77,11 @@ P = R(0)
 
 # Lagrange interpolation
 for i, (xi, yi) in enumerate(points):
- Li = R(1)
- for j, (xj, yj) in enumerate(points):
- if i != j:
- Li *= (x - xj) / (xi - xj)
- P += yi * Li
+    Li = R(1)
+    for j, (xj, yj) in enumerate(points):
+    if i != j:
+    Li *= (x - xj) / (xi - xj)
+    P += yi * Li
 
 print(P.coefficients(sparse=False))
 ```
@@ -127,17 +127,17 @@ import hashlib
 dico = {}
 
 for i in alphabet:
- for j in alphabet:
- for k in alphabet:
- for l in alphabet:
- if int(hashlib.sha256((i+j+k+l).encode('utf-8')).hexdigest(), 16) in solutionTab:
- dico[solutionTab.index(int(hashlib.sha256((i+j+k+l).encode('utf-8')).hexdigest(), 16))] = i+j+k+l
+    for j in alphabet:
+        for k in alphabet:
+            for l in alphabet:
+                if int(hashlib.sha256((i+j+k+l).encode('utf-8')).hexdigest(), 16) in solutionTab:
+                    dico[solutionTab.index(int(hashlib.sha256((i+j+k+l).encode('utf-8')).hexdigest(), 16))] = i+j+k+l
 
 dico = dict(sorted(dico.items(), key=lambda item: item[0]))
 
 result = ""
 for key, value in dico.items():
- result += f"{value}"
+    result += f"{value}"
 
 print(result)
 ```

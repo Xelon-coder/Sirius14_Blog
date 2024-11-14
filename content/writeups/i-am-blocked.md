@@ -54,7 +54,7 @@ So I found N value, let's pass to bruteforce.
 ## Bruteforce
 
 Here is the algorithm I use for bruteforcing with the given charset (stock.txt contains all the 60 blocks given when you starting a netcat session).
-{{<highlight txt>}}
+```py
 from Crypto.Util.number import *
 
 print("[+] Load data")
@@ -79,7 +79,7 @@ for combinaison in combinaisons:
         print("error")
     if temp in tab:
         print("[+] FOUND : n°",tab.index(temp)," , value : ",p)
-{{</highlight>}}
+```
 
 I reorganise all the block with their corresponding number and we have the plaintext :
 
