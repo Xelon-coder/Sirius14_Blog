@@ -7,8 +7,8 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "HeroCTF 2024 Crypto challenge by Alol"
-summary:  "HeroCTF 2024 Crypto challenge by Alol"
+description: HeroCTF 2024 Crypto challenge by Alol
+summary:  HeroCTF 2024 Crypto challenge by Alol
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -28,7 +28,7 @@ Has missing data really ever stopped anyone?
 # First look
 
 The script is concise, it uses secret shamir sharing but each coefficient is a part of the secret.
-{{<highlight txt>}}
+```py
 #!/usr/bin/sage
 import hashlib
 import re
@@ -60,7 +60,7 @@ for p in points:
  break
 else:
  print("Congrats!")
-{{</highlight>}}
+```
 
 The goal is to retrieve the correct coefficients, then we will need to brute force a pair of 4 bytes in all the charsets to compare their hash value with coefficients.
 
@@ -68,7 +68,7 @@ The goal is to retrieve the correct coefficients, then we will need to brute for
 
 With only one try I didn't have enough shares, so as the flag didn't change I merged the two shares, now using sage it's quite easy to retrieve coefficients values. To do that we can use [lagrange interpolation](https://en.wikipedia.org/wiki/Lagrange_polynomial)
 
-{{<highlight txt>}}
+```sage
 F = FiniteField(2**256 - 189)
 R.<x> = PolynomialRing(F, "x")
 
@@ -84,7 +84,7 @@ for i, (xi, yi) in enumerate(points):
  P += yi * Li
 
 print(P.coefficients(sparse=False))
-{{</highlight>}}
+```
 
 Here is the result : 
 
