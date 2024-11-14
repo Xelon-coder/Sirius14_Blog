@@ -3,8 +3,7 @@ languageCode = 'en-us'
 title = 'Sirius14 Blog'
 theme = 'PaperMod'
 paginate = 5
-pygmentsUseClasses = true
-pygmentsCodeFences = true
+
 
 enableRobotsTXT = true
 buildDrafts = false
@@ -111,11 +110,12 @@ name = "Article"
 url = "/article/"
 weight = 20
 
-[markup.highlight]
-  codeFences = true
-  guessSyntax = true
-  lineNoStart = 1
-  lineNos = true
-  lineNumbersInTable = true
-  tabWidth = 4
-  noClasses = false
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    tabWidth = 4
+    noClasses = false

@@ -1,5 +1,5 @@
 ---
-title: "🔒 Interpolation"
+title: "🔒 Paranoia"
 date: 2024-10-27T14:50:18+01:00
 author: "Sirius14"
 showToc: true

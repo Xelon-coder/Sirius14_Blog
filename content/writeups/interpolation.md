@@ -121,7 +121,7 @@ To be sure that it's the correct coefficient we can try with known part of the f
 
 With a simple Python script, we can brute-force all possibilities and find the flag. Using a dictionary to store the index makes it easier to put the flags back in the right order. After a few minutes, we finally found the flag!!!
 
-{{<highlight txt>}}
+```py
 import hashlib
 
 dico = {}
@@ -140,6 +140,6 @@ for key, value in dico.items():
  result += f"{value}"
 
 print(result)
-{{</highlight>}}
+```
 
 Flag was __Hero{th3r3_4r3_tw0_typ35_0f_p30pl3_1n_th15_w0rld_th053_wh0_c4n_3xtr4p0l4t3_fr0m_1nc0mpl3t3_d474}__
