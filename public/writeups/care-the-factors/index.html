@@ -34,7 +34,7 @@
 <meta name=twitter:title content="🔒 Care The Factors">
 <meta name=twitter:description content="HACKDAY 2024 Qualification Crypto challenge by D0ppl3gang3r">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Writeups","item":"https://xelon-coder.github.io/Sirius14_Blog/writeups/"},{"@type":"ListItem","position":2,"name":"🔒 Care The Factors","item":"https://xelon-coder.github.io/Sirius14_Blog/writeups/care-the-factors/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"🔒 Care The Factors","name":"🔒 Care The Factors","description":"HACKDAY 2024 Qualification Crypto challenge by D0ppl3gang3r","keywords":["CTF","Writeups","HACKDAY 2024 Qualification","🔒 Crypto"],"articleBody":"This challenge is about Ellipic Curve Cryptography\nFirst look We have 2 files, a part of source code and output. Our goal is to find n, this issue is commonly known as Elliptic Curve Discrete Logarithm.\nAnalysis In the first one we have\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  def getA(): # You have to find it yourself /: pass def getB(): # You have to find it yourself /: pass # Some code ... p = 1410235279292998784331797202421753874063265295308568058662741299116310072677 A = getA() B = getB() Fp = FiniteField(p) E = EllipticCurve(Fp, [A, B]) P = E.random_element() n = randint(2**30, 2**60) Q = n * P flag = enc_flag(n)   In the second one : 1 2 3  P=(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684) Q=(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569) flag={'iv': '4318aa195451964d2078e230494ef079', 'flag': '75ae6944d3434c9e96affd40c6137bfe23934fddcc6693bdfdd7a1d542f3464a12abc09d87dd0dc8fd860d666dd2b337'}  \nWe have 2 points on the curve P and Q, but we don’t have A and B coefficient. As a reminder, the equation of curve E is y^2 = x^3 + ax + b. In addition, the name of the challenge refers to factors, indeed we can determine p factors easily. This a great news, this indicating that Pohlig-Hellman could be feasible:\nFind A and B Thus the first step is to retreive A and B. After some research I found a crypto stack exchange post explaining how to do.\nHere is sage code to get A and B: 1 2 3 4 5 6  P_x,P_y =(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684) Q_x,Q_y =(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569) p = 1410235279292998784331797202421753874063265295308568058662741299116310072677 A = (((P_y**2-Q_y**2)-(P_x**3-Q_x**3))*pow((P_x-Q_x),-1,p))%p B = (P_y**2 - P_x**3 - A) % p  \nPohlig-Hellman As p is factorable we try to use calcul discrete logarithm for enough factors of p so that the product of these is at least greater than 2**30 (because 2**30 Here is the sage code for pohling Hellman: 1 2 3 4 5 6 7 8 9 10 11 12 13 14  P=(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684) Q=(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569) F = FiniteField(p) E = EllipticCurve(F,[A,B]) P = E.point(P) Q = E.point(Q) primes = [2, 3, 7, 43, 349, 409, 6199, 344222059, 58853094821, 162989330351, 284121766519, 940658041742936711869] # you can use factor(E.order()) to get it dlogs = [] for fac in primes: t = int(P.order()) // int(fac) dlog = discrete_log(t*Q, t*P, operation='+') dlogs.append(dlog)  \nThen last step of this algorithm is to used Chinese Reminder Theorem n = crt(dlogs, primes)\nWe print value of n and test if Q == n*P It works !!!\nP.S : Note that we don’t need all dlogs tab (DL of last factor is too long for sage), personnally I use n = crt(dlogs[1:-1], primes)\nDecrypt and Flag Last step is to decrypt the flag, key is md5(n) and iv is given, we put this in cyberchef\nAnd we obtain the flag : HACKDAY{W34k_EC_W1th_P0hlig_H3llm4n_4TT4cK}\nThanks to D0ppl3gang3r for this chall !\n","wordCount":"475","inLanguage":"en","datePublished":"2024-01-21T16:00:10+01:00","dateModified":"2024-01-21T16:00:10+01:00","author":{"@type":"Person","name":"Sirius14"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xelon-coder.github.io/Sirius14_Blog/writeups/care-the-factors/"},"publisher":{"@type":"Organization","name":"Sirius14 Blog","logo":{"@type":"ImageObject","url":"https://xelon-coder.github.io/Sirius14_Blog/img/logo.png"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"🔒 Care The Factors","name":"🔒 Care The Factors","description":"HACKDAY 2024 Qualification Crypto challenge by D0ppl3gang3r","keywords":["CTF","Writeups","HACKDAY 2024 Qualification","🔒 Crypto"],"articleBody":"This challenge is about Ellipic Curve Cryptography\nFirst look We have 2 files, a part of source code and output. Our goal is to find n, this issue is commonly known as Elliptic Curve Discrete Logarithm.\nAnalysis In the first one we have\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  def getA(): # You have to find it yourself /: pass def getB(): # You have to find it yourself /: pass # Some code ... p = 1410235279292998784331797202421753874063265295308568058662741299116310072677 A = getA() B = getB() Fp = FiniteField(p) E = EllipticCurve(Fp, [A, B]) P = E.random_element() n = randint(2**30, 2**60) Q = n * P flag = enc_flag(n)   In the second one : 1 2 3  P=(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684) Q=(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569) flag={'iv': '4318aa195451964d2078e230494ef079', 'flag': '75ae6944d3434c9e96affd40c6137bfe23934fddcc6693bdfdd7a1d542f3464a12abc09d87dd0dc8fd860d666dd2b337'}  \nWe have 2 points on the curve P and Q, but we don’t have A and B coefficient. As a reminder, the equation of curve E is y^2 = x^3 + ax + b. In addition, the name of the challenge refers to factors, indeed we can determine p factors easily. This a great news, this indicating that Pohlig-Hellman could be feasible:\nFind A and B Thus the first step is to retreive A and B. After some research I found a crypto stack exchange post explaining how to do.\nHere is sage code to get A and B:\n1 2 3 4 5 6  P_x,P_y =(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684) Q_x,Q_y =(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569) p = 1410235279292998784331797202421753874063265295308568058662741299116310072677 A = (((P_y**2-Q_y**2)-(P_x**3-Q_x**3))*pow((P_x-Q_x),-1,p))%p B = (P_y**2 - P_x**3 - A) % p   Pohlig-Hellman As p is factorable we try to use calcul discrete logarithm for enough factors of p so that the product of these is at least greater than 2**30 (because 2**30 Here is the sage code for pohling Hellman:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14  P=(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684) Q=(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569) F = FiniteField(p) E = EllipticCurve(F,[A,B]) P = E.point(P) Q = E.point(Q) primes = [2, 3, 7, 43, 349, 409, 6199, 344222059, 58853094821, 162989330351, 284121766519, 940658041742936711869] # you can use factor(E.order()) to get it dlogs = [] for fac in primes: t = int(P.order()) // int(fac) dlog = discrete_log(t*Q, t*P, operation='+') dlogs.append(dlog)   Then last step of this algorithm is to used Chinese Reminder Theorem n = crt(dlogs, primes)\nWe print value of n and test if Q == n*P It works !!!\nP.S : Note that we don’t need all dlogs tab (DL of last factor is too long for sage), personnally I use n = crt(dlogs[1:-1], primes)\nDecrypt and Flag Last step is to decrypt the flag, key is md5(n) and iv is given, we put this in cyberchef\nAnd we obtain the flag : HACKDAY{W34k_EC_W1th_P0hlig_H3llm4n_4TT4cK}\nThanks to D0ppl3gang3r for this chall !\n","wordCount":"475","inLanguage":"en","datePublished":"2024-01-21T16:00:10+01:00","dateModified":"2024-01-21T16:00:10+01:00","author":{"@type":"Person","name":"Sirius14"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xelon-coder.github.io/Sirius14_Blog/writeups/care-the-factors/"},"publisher":{"@type":"Organization","name":"Sirius14 Blog","logo":{"@type":"ImageObject","url":"https://xelon-coder.github.io/Sirius14_Blog/img/logo.png"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -117,27 +117,27 @@ HACKDAY 2024 Qualification Crypto challenge by D0ppl3gang3r
 </span><span class=lnt>18
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-txt data-lang=txt>def getA():
-    # You have to find it yourself /:
-    pass
-def getB():
-    # You have to find it yourself /:
-    pass
+<pre tabindex=0 class=chroma><code class=language-sage data-lang=sage><span class=k>def</span> <span class=nf>getA</span><span class=p>():</span>
+    <span class=c1># You have to find it yourself /:</span>
+    <span class=k>pass</span>
+<span class=k>def</span> <span class=nf>getB</span><span class=p>():</span>
+    <span class=c1># You have to find it yourself /:</span>
+    <span class=k>pass</span>
 
-# Some code ...
+<span class=c1># Some code ...</span>
 
-p = 1410235279292998784331797202421753874063265295308568058662741299116310072677
-A = getA()
-B = getB()
-Fp = FiniteField(p)
-E = EllipticCurve(Fp, [A, B])
-P = E.random_element()
-n = randint(2**30, 2**60)
-Q = n * P
-flag = enc_flag(n)</code></pre></td></tr></table>
+<span class=n>p</span> <span class=o>=</span> <span class=mi>1410235279292998784331797202421753874063265295308568058662741299116310072677</span>
+<span class=n>A</span> <span class=o>=</span> <span class=n>getA</span><span class=p>()</span>
+<span class=n>B</span> <span class=o>=</span> <span class=n>getB</span><span class=p>()</span>
+<span class=n>Fp</span> <span class=o>=</span> <span class=n>FiniteField</span><span class=p>(</span><span class=n>p</span><span class=p>)</span>
+<span class=n>E</span> <span class=o>=</span> <span class=n>EllipticCurve</span><span class=p>(</span><span class=n>Fp</span><span class=p>,</span> <span class=p>[</span><span class=n>A</span><span class=p>,</span> <span class=n>B</span><span class=p>])</span>
+<span class=n>P</span> <span class=o>=</span> <span class=n>E</span><span class=o>.</span><span class=n>random_element</span><span class=p>()</span>
+<span class=n>n</span> <span class=o>=</span> <span class=n>randint</span><span class=p>(</span><span class=mi>2</span><span class=o>**</span><span class=mi>30</span><span class=p>,</span> <span class=mi>2</span><span class=o>**</span><span class=mi>60</span><span class=p>)</span>
+<span class=n>Q</span> <span class=o>=</span> <span class=n>n</span> <span class=o>*</span> <span class=n>P</span>
+<span class=n>flag</span> <span class=o>=</span> <span class=n>enc_flag</span><span class=p>(</span><span class=n>n</span><span class=p>)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>In the second one :
+</div><p>In the second one :
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -153,7 +153,7 @@ flag={&#39;iv&#39;: &#39;4318aa195451964d2078e230494ef079&#39;, &#39;flag&#39;: 
 <p>We have 2 points on the curve P and Q, but we don&rsquo;t have A and B coefficient. As a reminder, the equation of curve E is <code>y^2 = x^3 + ax + b</code>. In addition, the name of the challenge refers to factors, indeed we can determine p factors easily. This a great news, this indicating that Pohlig-Hellman could be feasible:</p>
 <h2 id=find-a-and-b>Find A and B<a hidden class=anchor aria-hidden=true href=#find-a-and-b>#</a></h2>
 <p>Thus the first step is to retreive A and B. After some research I found a crypto stack exchange <a href=https://crypto.stackexchange.com/questions/97811/find-elliptic-curve-parameters-a-and-b-given-two-points-on-the-curve>post</a> explaining how to do.</p>
-<p>Here is sage code to get A and B:
+<p>Here is sage code to get A and B:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -164,17 +164,17 @@ flag={&#39;iv&#39;: &#39;4318aa195451964d2078e230494ef079&#39;, &#39;flag&#39;: 
 </span><span class=lnt>6
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-txt data-lang=txt>P_x,P_y =(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684)
-Q_x,Q_y =(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569)
-p = 1410235279292998784331797202421753874063265295308568058662741299116310072677
+<pre tabindex=0 class=chroma><code class=language-sage data-lang=sage><span class=n>P_x</span><span class=p>,</span><span class=n>P_y</span> <span class=o>=</span><span class=p>(</span><span class=mi>406156291172024449433827761031736513098183950832214481256475543523051604042</span><span class=p>,</span><span class=mi>937502472800241241676075882016117499207790111193756481427079135615174871684</span><span class=p>)</span>
+<span class=n>Q_x</span><span class=p>,</span><span class=n>Q_y</span> <span class=o>=</span><span class=p>(</span><span class=mi>92554882076587701525654416824880284407135974444455993706448015434816328085</span><span class=p>,</span> <span class=mi>1067245947645250194968549384640439378373660468218406176128671131644883921569</span><span class=p>)</span>
+<span class=n>p</span> <span class=o>=</span> <span class=mi>1410235279292998784331797202421753874063265295308568058662741299116310072677</span>
 
-A = (((P_y**2-Q_y**2)-(P_x**3-Q_x**3))*pow((P_x-Q_x),-1,p))%p
-B = (P_y**2 - P_x**3 - A) % p</code></pre></td></tr></table>
+<span class=n>A</span> <span class=o>=</span> <span class=p>(((</span><span class=n>P_y</span><span class=o>**</span><span class=mi>2</span><span class=o>-</span><span class=n>Q_y</span><span class=o>**</span><span class=mi>2</span><span class=p>)</span><span class=o>-</span><span class=p>(</span><span class=n>P_x</span><span class=o>**</span><span class=mi>3</span><span class=o>-</span><span class=n>Q_x</span><span class=o>**</span><span class=mi>3</span><span class=p>))</span><span class=o>*</span><span class=nb>pow</span><span class=p>((</span><span class=n>P_x</span><span class=o>-</span><span class=n>Q_x</span><span class=p>),</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span><span class=n>p</span><span class=p>))</span><span class=o>%</span><span class=n>p</span>
+<span class=n>B</span> <span class=o>=</span> <span class=p>(</span><span class=n>P_y</span><span class=o>**</span><span class=mi>2</span> <span class=o>-</span> <span class=n>P_x</span><span class=o>**</span><span class=mi>3</span> <span class=o>-</span> <span class=n>A</span><span class=p>)</span> <span class=o>%</span> <span class=n>p</span>
+</code></pre></td></tr></table>
 </div>
-</div></p>
-<h2 id=pohlig-hellman>Pohlig-Hellman<a hidden class=anchor aria-hidden=true href=#pohlig-hellman>#</a></h2>
+</div><h2 id=pohlig-hellman>Pohlig-Hellman<a hidden class=anchor aria-hidden=true href=#pohlig-hellman>#</a></h2>
 <p>As p is factorable we try to use calcul discrete logarithm for enough factors of p so that the product of these is at least greater than 2**30 (because 2**30 &lt; n &lt; 2**60), if the product is greater than 2**60 that would be even better.</p>
-<p>Here is the sage code for pohling Hellman:
+<p>Here is the sage code for pohling Hellman:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -193,23 +193,23 @@ B = (P_y**2 - P_x**3 - A) % p</code></pre></td></tr></table>
 </span><span class=lnt>14
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-txt data-lang=txt>P=(406156291172024449433827761031736513098183950832214481256475543523051604042,937502472800241241676075882016117499207790111193756481427079135615174871684)
-Q=(92554882076587701525654416824880284407135974444455993706448015434816328085, 1067245947645250194968549384640439378373660468218406176128671131644883921569)
-F = FiniteField(p)
-E = EllipticCurve(F,[A,B])
-P = E.point(P)
-Q = E.point(Q)
+<pre tabindex=0 class=chroma><code class=language-sage data-lang=sage><span class=n>P</span><span class=o>=</span><span class=p>(</span><span class=mi>406156291172024449433827761031736513098183950832214481256475543523051604042</span><span class=p>,</span><span class=mi>937502472800241241676075882016117499207790111193756481427079135615174871684</span><span class=p>)</span>
+<span class=n>Q</span><span class=o>=</span><span class=p>(</span><span class=mi>92554882076587701525654416824880284407135974444455993706448015434816328085</span><span class=p>,</span> <span class=mi>1067245947645250194968549384640439378373660468218406176128671131644883921569</span><span class=p>)</span>
+<span class=n>F</span> <span class=o>=</span> <span class=n>FiniteField</span><span class=p>(</span><span class=n>p</span><span class=p>)</span>
+<span class=n>E</span> <span class=o>=</span> <span class=n>EllipticCurve</span><span class=p>(</span><span class=n>F</span><span class=p>,[</span><span class=n>A</span><span class=p>,</span><span class=n>B</span><span class=p>])</span>
+<span class=n>P</span> <span class=o>=</span> <span class=n>E</span><span class=o>.</span><span class=n>point</span><span class=p>(</span><span class=n>P</span><span class=p>)</span>
+<span class=n>Q</span> <span class=o>=</span> <span class=n>E</span><span class=o>.</span><span class=n>point</span><span class=p>(</span><span class=n>Q</span><span class=p>)</span>
 
-primes = [2, 3, 7, 43, 349, 409, 6199, 344222059, 58853094821, 162989330351, 284121766519, 940658041742936711869] # you can use factor(E.order()) to get it
+<span class=n>primes</span> <span class=o>=</span> <span class=p>[</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>43</span><span class=p>,</span> <span class=mi>349</span><span class=p>,</span> <span class=mi>409</span><span class=p>,</span> <span class=mi>6199</span><span class=p>,</span> <span class=mi>344222059</span><span class=p>,</span> <span class=mi>58853094821</span><span class=p>,</span> <span class=mi>162989330351</span><span class=p>,</span> <span class=mi>284121766519</span><span class=p>,</span> <span class=mi>940658041742936711869</span><span class=p>]</span> <span class=c1># you can use factor(E.order()) to get it</span>
 
-dlogs = []
-for fac in primes:
-    t = int(P.order()) // int(fac)
-    dlog = discrete_log(t*Q, t*P, operation=&#39;+&#39;)
-    dlogs.append(dlog)</code></pre></td></tr></table>
+<span class=n>dlogs</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=k>for</span> <span class=n>fac</span> <span class=ow>in</span> <span class=n>primes</span><span class=p>:</span>
+    <span class=n>t</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=n>P</span><span class=o>.</span><span class=n>order</span><span class=p>())</span> <span class=o>//</span> <span class=nb>int</span><span class=p>(</span><span class=n>fac</span><span class=p>)</span>
+    <span class=n>dlog</span> <span class=o>=</span> <span class=n>discrete_log</span><span class=p>(</span><span class=n>t</span><span class=o>*</span><span class=n>Q</span><span class=p>,</span> <span class=n>t</span><span class=o>*</span><span class=n>P</span><span class=p>,</span> <span class=n>operation</span><span class=o>=</span><span class=s1>&#39;+&#39;</span><span class=p>)</span>
+    <span class=n>dlogs</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>dlog</span><span class=p>)</span>
+</code></pre></td></tr></table>
 </div>
-</div></p>
-<p>Then last step of this algorithm is to used Chinese Reminder Theorem
+</div><p>Then last step of this algorithm is to used Chinese Reminder Theorem
 <code>n = crt(dlogs, primes)</code></p>
 <p>We print value of n and test if Q == n*P
 It works !!!</p>
@@ -230,7 +230,7 @@ It works !!!</p>
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2024 <a href=https://xelon-coder.github.io/Sirius14_Blog/>Sirius14 Blog</a></span>
+<span>&copy; 2025 <a href=https://xelon-coder.github.io/Sirius14_Blog/>Sirius14 Blog</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

@@ -11,10 +11,17 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language></language>
-    <lastBuildDate>Mon, 29 Jan 2024 14:46:56 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2024 13:45:31 +0200</lastBuildDate>
     <atom:link href="https://xelon-coder.github.io/Sirius14_Blog/article/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Continual Learning</title>
+      <title>📝 Seminar Artificial Intelligence</title>
+      <link>https://xelon-coder.github.io/Sirius14_Blog/article/seminar-artificial-intelligence/</link>
+      <pubDate>Wed, 25 Sep 2024 13:45:31 +0200</pubDate>
+      <guid>https://xelon-coder.github.io/Sirius14_Blog/article/seminar-artificial-intelligence/</guid>
+      <description>Continual Learning: Mitigating Catastrophic Forgetting and Expanding Applications in Distributed Systems</description>
+    </item>
+    <item>
+      <title>📝 Continual Learning: Introduction</title>
       <link>https://xelon-coder.github.io/Sirius14_Blog/article/continual-learning/</link>
       <pubDate>Mon, 29 Jan 2024 14:46:56 +0100</pubDate>
       <guid>https://xelon-coder.github.io/Sirius14_Blog/article/continual-learning/</guid>

