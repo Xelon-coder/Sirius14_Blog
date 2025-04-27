@@ -166,6 +166,58 @@ This process has for parent Signal.hooked, and have for PID 345.
 
 Flag was: __FCSC{org.whispersystems.signal|345}__
 
+# iForensics - iBackdoor 2/2 ⭐⭐
+
+Maintenant que vous savez quelle application a été compromise, retrouvez comment est-ce que l'attaquant a récupéré l'application légitime, préalablement à l'infection.
+
+Il vous faudra retrouver :
+
+L'identifiant de l'application utilisée pour récupérer l'application légitime;
+Le chemin utilisé pour stocker l'application légitime;
+La date de désinstallation de l'application légitime (en heure locale).
+Le flag est au format FCSC{<identifiant application>|<chemin>|<date>}. Par exemple, si l'application utilisée est Example (com.example), que le chemin est /private/var/tmp/test.xyz et que la date de désinstallation est 2025-01-01 01:00:00 : FCSC{com.example|/private/var/tmp/test.xyz|2025-01-01 01:00:00}.
+
+## Dig dig dig
+
+We are looking for an application that could allow us to recover legitimate apps.
+First, we need to find the complete list of installed applications. Using the same technique as with `sms.db`, we locate the hash of the database containing all application identifiers: `10d00bb4c9eddd89f462d1d19a1e0b352870d738`.
+ 
+By scrolling through the entries and looking towards the end, we notice two strange identifiers:
+- com.opa334.TrollStore
+- com.fiore.trolldecrypt
+
+![strange identifier](/Sirius14_Blog/img/writeups/iForensics_8.png)
+
+After a quick search on the internet, we found more information about these identifiers.
+
+- TrollStore is a tool for iOS that allows you to install and sign apps permanently on non-jailbroken devices (specifically on versions with certain vulnerabilities like CoreTrust bugs). It bypasses normal App Store and sideloading restrictions without needing a jailbreak.
+
+- TrollDecrypt is a companion tool that can decrypt apps installed via TrollStore, typically used to extract raw, decrypted binaries for reverse engineering or modding.
+
+So it seems we have found application identifier: `com.fiore.trolldecrypt`
+
+Now, to retrieve the paths, let’s use grep again.
+Applications on iOS are stored under `/var/mobile/Library`, so we can combine this path with `trolldecrypt` and  `signal` in our grep command to narrow down the search.
+
+```sh
+grep -a -i -r '/var/mobile/Library' | grep -a -i 'trolldecrypt' | grep -a -i 'Signal'
+```
+
+![grep the path](/Sirius14_Blog/img/writeups/iForensics_9.png)
+
+Path is now retreived: `/private/var/mobile/Library/TrollDecrypt/decrypted/Signal_7.53_decrypted.ipa`
+
+Let’s find the uninstallation date of the Signal app!
+
+To do that, we need to search inside the `DiagnosticLogs/*/logs/MobileInstallatio/` folder.
+This folder tracks every event related to the app lifecycle on iOS: installs, updates, and uninstalls.
+
+Another quick grep... and boom, we found it!
+
+![grep the path](/Sirius14_Blog/img/writeups/iForensics_10.png)
+
+Flag was: __FCSC{com.fiore.trolldecrypt|/private/var/mobile/Library/TrollDecrypt/decrypted/Signal_7.53_decrypted.ipa|2025-04-07 07:40:47}__
+
 # iForensics - iC2 ⭐⭐⭐
 
 Retrouvez le nom de l'outil malveillant déployé sur le téléphone, ainsi que le protocole, l'adresse IP et le port de communication vers le serveur C2.
@@ -183,7 +235,10 @@ root                 0    99   345   344  4004004   0.0  0.0   0  0        0    
 There is like a base64 on the launch command, let's decode it: `tcp://98.66.154.235:29552`.
 Nice we found the C2 !!!
 
-Unfortunately, I didn't have time to identify the malware tool used.
+Concerning the tool name, let’s check Google for information about the mussel malware on iOS.
+After a few searches, we find this [GitHub](https://github.com/EntySec/SeaShell) repository that appears to be a post-exploitation framework for iPhone devices.
+
+Flag was: __FCSC{seashell|TCP|98.66.154.235|29552}__
 
 ## Acknowledgment 
 
